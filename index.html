@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<title>Dockside — 15-minute learning</title>
+
+<!-- Home screen app behavior (iOS) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dockside">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<!-- Home screen app behavior (Android / Chrome) -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0c1830">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkRvY2tzaWRlIiwgInNob3J0X25hbWUiOiAiRG9ja3NpZGUiLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzBjMTgzMCIsICJ0aGVtZV9jb2xvciI6ICIjMGMxODMwIiwgInN0YXJ0X3VybCI6ICIuIn0=">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --ink:#12213a;
+    --navy:#16294a;
+    --navy-deep:#0c1830;
+    --paper:#f6f3ec;
+    --gold:#c8912a;
+    --gold-soft:#e7c887;
+    --line:#2a3d63;
+    --good:#3f8f6b;
+    --bad:#b95a4a;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0; padding:0; height:100%;}
+  body{
+    font-family:'Inter', system-ui, sans-serif;
+    background: var(--navy-deep);
+    color: var(--paper);
+    display:flex; justify-content:center;
+    min-height:100vh;
+  }
+  #app{
+    width:100%; max-width:480px;
+    min-height:100vh;
+    background: var(--navy-deep);
+    position:relative;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; margin:0; }
+  .screen{ display:none; flex-direction:column; flex:1; min-height:100vh; }
+  .screen.active{ display:flex; }
+
+  /* ---------- HOME ---------- */
+  #home{ padding:28px 22px 100px; }
+  .brandbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand-mark{ width:34px; height:34px; border-radius:9px; background:linear-gradient(155deg,var(--gold-soft),var(--gold)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:700; color:var(--navy-deep); font-size:17px;}
+  .brand-name{ font-size:15px; letter-spacing:0.02em; color:#cfd7ea; font-weight:600;}
+  .streak-pill{ display:flex; align-items:center; gap:6px; background:rgba(200,145,42,0.14); border:1px solid rgba(200,145,42,0.4); padding:6px 12px; border-radius:100px; font-size:13px; color:var(--gold-soft); font-weight:600;}
+
+  .hero{ margin:6px 0 28px; }
+  .hero-eyebrow{ font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-soft); font-weight:600; margin-bottom:10px;}
+  .hero h1{ font-size:30px; line-height:1.15; color:#fff; font-weight:600; }
+  .hero p{ font-size:14.5px; color:#a9b4cc; margin-top:10px; line-height:1.55; max-width:38ch;}
+
+  .rail-label{ font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:#8b96b3; font-weight:600; margin:26px 0 14px; }
+
+  .track-scroll{ display:flex; gap:14px; overflow-x:auto; padding-bottom:6px; margin:0 -22px; padding-left:22px; padding-right:22px; scrollbar-width:none;}
+  .track-scroll::-webkit-scrollbar{ display:none; }
+
+  .course-card{
+    flex:0 0 auto; width:210px;
+    background: var(--navy);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px;
+    display:flex; flex-direction:column; gap:10px;
+    cursor:pointer;
+    transition: transform .15s ease;
+  }
+  .course-card:active{ transform: scale(0.97); }
+  .course-tag{ font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-soft); font-weight:700;}
+  .course-title{ font-size:16.5px; font-weight:600; color:#fff; line-height:1.3;}
+  .course-meta{ font-size:12.5px; color:#8b96b3; margin-top:auto; display:flex; justify-content:space-between; align-items:center;}
+  .mini-progress{ height:4px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; margin-top:2px;}
+  .mini-progress-fill{ height:100%; background:var(--gold); border-radius:4px; }
+
+  .all-list{ display:flex; flex-direction:column; gap:10px; margin-top:6px;}
+  .list-row{ display:flex; align-items:center; gap:14px; background:var(--navy); border:1px solid var(--line); border-radius:14px; padding:13px 14px; cursor:pointer;}
+  .list-row .num{ font-family:'Fraunces',serif; font-size:19px; color:var(--gold-soft); width:26px;}
+  .list-row .info{ flex:1; }
+  .list-row .info .t{ font-size:14.5px; font-weight:600; color:#fff; }
+  .list-row .info .s{ font-size:12px; color:#8b96b3; margin-top:2px;}
+  .check{ width:22px; height:22px; border-radius:50%; border:1.5px solid #47547a; flex:0 0 auto; display:flex; align-items:center; justify-content:center; font-size:12px; color:transparent;}
+  .check.done{ background:var(--good); border-color:var(--good); color:#fff;}
+
+  .tabbar{ position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; background:rgba(12,24,48,0.92); backdrop-filter:blur(10px); border-top:1px solid var(--line); display:flex; padding:10px 10px 16px;}
+  .tab{ flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; font-size:11px; color:#7a86a5; font-weight:600; cursor:pointer;}
+  .tab.active{ color:var(--gold-soft); }
+  .tab-dot{ width:6px; height:6px; border-radius:50%; background:transparent;}
+  .tab.active .tab-dot{ background:var(--gold); }
+
+  /* ---------- READER ---------- */
+  #reader{ background:var(--paper); color:var(--ink); }
+  .reader-top{ display:flex; align-items:center; gap:12px; padding:18px 18px 12px; }
+  .back-btn{ width:34px; height:34px; border-radius:50%; background:rgba(18,33,58,0.06); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:16px; }
+  .rail{ flex:1; display:flex; gap:5px; }
+  .rail-seg{ flex:1; height:4px; border-radius:3px; background:rgba(18,33,58,0.12);}
+  .rail-seg.filled{ background: var(--gold); }
+  .card-count{ font-size:12.5px; color:#7a7263; font-weight:600; white-space:nowrap;}
+
+  .card-wrap{ flex:1; display:flex; flex-direction:column; padding:10px 24px 24px; overflow-y:auto; }
+  .card-eyebrow{ font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:14px;}
+  .card-title{ font-size:24px; line-height:1.28; font-weight:600; margin-bottom:16px; }
+  .card-body{ font-size:16px; line-height:1.68; color:#3a3527; flex:1;}
+  .card-body p + p{ margin-top:12px; }
+
+  .nav-row{ display:flex; gap:12px; padding:0 20px 26px; }
+  .nav-btn{ flex:1; padding:15px; border-radius:14px; border:none; font-family:'Inter'; font-weight:700; font-size:15px; cursor:pointer; }
+  .nav-btn.next{ background: var(--navy-deep); color:#fff; }
+  .nav-btn.prev{ background:transparent; color:#7a7263; border:1.5px solid rgba(18,33,58,0.18); flex:0 0 90px; }
+
+  /* ---------- QUIZ ---------- */
+  #quiz{ background:var(--paper); color:var(--ink); padding:20px 22px 26px; }
+  .quiz-progress{ font-size:12.5px; font-weight:600; color:#7a7263; margin-bottom:6px;}
+  .quiz-q{ font-size:21px; font-weight:600; line-height:1.35; margin:10px 0 22px; font-family:'Fraunces',serif;}
+  .opt{ display:block; width:100%; text-align:left; padding:15px 16px; border-radius:13px; border:1.5px solid rgba(18,33,58,0.15); background:#fff; margin-bottom:11px; font-size:15px; font-weight:500; cursor:pointer; color:var(--ink); font-family:'Inter';}
+  .opt.correct{ border-color:var(--good); background:rgba(63,143,107,0.1); }
+  .opt.wrong{ border-color:#b95a4a; background:rgba(185,90,74,0.1); }
+  .opt[disabled]{ cursor:default; }
+  .quiz-explain{ font-size:14px; color:#5a5445; background:rgba(18,33,58,0.05); border-radius:12px; padding:14px 16px; margin-top:8px; line-height:1.55;}
+  .quiz-cta{ margin-top:22px; }
+
+  /* ---------- COMPLETE ---------- */
+  #complete{ background:var(--navy-deep); align-items:center; justify-content:center; text-align:center; padding:40px 30px; }
+  .complete-badge{ width:84px; height:84px; border-radius:50%; background:linear-gradient(155deg,var(--gold-soft),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:34px; margin-bottom:22px;}
+  #complete h2{ color:#fff; font-size:24px; margin-bottom:10px;}
+  #complete p{ color:#a9b4cc; font-size:14.5px; line-height:1.6; max-width:32ch; margin-bottom:26px;}
+  .stat-row{ display:flex; gap:14px; margin-bottom:30px; }
+  .stat{ background:var(--navy); border:1px solid var(--line); border-radius:14px; padding:16px 20px; min-width:100px; }
+  .stat b{ display:block; font-size:22px; color:var(--gold-soft); font-family:'Fraunces',serif;}
+  .stat span{ font-size:11.5px; color:#8b96b3; }
+  .cta-primary{ width:100%; max-width:280px; padding:16px; border-radius:14px; border:none; background:var(--gold); color:var(--navy-deep); font-weight:700; font-size:15px; cursor:pointer; margin-bottom:10px;}
+  .cta-secondary{ background:none; border:none; color:#8b96b3; font-size:13.5px; cursor:pointer; text-decoration:underline;}
+
+  ::-webkit-scrollbar{ width:0; height:0;}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <div class="screen active" id="home">
+    <div class="brandbar">
+      <div class="brand">
+        <div class="brand-mark">D</div>
+        <div class="brand-name">Dockside</div>
+      </div>
+      <div class="streak-pill">🔥 <span id="streakCount">0</span> day streak</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-eyebrow">Today's stop</div>
+      <h1 id="heroTitle">Fifteen minutes,<br>zero subscriptions.</h1>
+      <p id="heroSub">Short, original lessons you actually own. No paywall, no monthly bill — just pick a line and ride it.</p>
+    </div>
+
+    <div class="rail-label">Continue where you left off</div>
+    <div class="track-scroll" id="continueTrack"></div>
+
+    <div class="rail-label">All lines</div>
+    <div class="all-list" id="allList"></div>
+  </div>
+
+  <!-- READER -->
+  <div class="screen" id="reader">
+    <div class="reader-top">
+      <div class="back-btn" onclick="goHome()">←</div>
+      <div class="rail" id="readerRail"></div>
+      <div class="card-count" id="readerCount"></div>
+    </div>
+    <div class="card-wrap">
+      <div class="card-eyebrow" id="cardEyebrow"></div>
+      <div class="card-title" id="cardTitle"></div>
+      <div class="card-body" id="cardBody"></div>
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn prev" id="prevBtn" onclick="prevCard()">Back</button>
+      <button class="nav-btn next" id="nextBtn" onclick="nextCard()">Continue</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="quiz">
+    <div class="quiz-progress" id="quizProgress"></div>
+    <div class="quiz-q" id="quizQ"></div>
+    <div id="quizOpts"></div>
+    <div class="quiz-explain" id="quizExplain" style="display:none;"></div>
+    <div class="quiz-cta" style="display:none;" id="quizCtaWrap">
+      <button class="nav-btn next" style="width:100%;" onclick="nextQuizQ()">Continue</button>
+    </div>
+  </div>
+
+  <!-- COMPLETE -->
+  <div class="screen" id="complete">
+    <div class="complete-badge">✓</div>
+    <h2 id="completeTitle">Line complete</h2>
+    <p id="completeSub">Nice work. That's one more short lesson banked, no subscription required.</p>
+    <div class="stat-row">
+      <div class="stat"><b id="statScore">-</b><span>quiz score</span></div>
+      <div class="stat"><b id="statStreak">-</b><span>day streak</span></div>
+    </div>
+    <button class="cta-primary" onclick="goHome()">Back to lines</button>
+    <button class="cta-secondary" onclick="restartCourse()">Read it again</button>
+  </div>
+
+</div>
+
+<script>
+/* ---------------------------------------------------------
+   CONTENT — original writing, not derived from any single
+   copyrighted book. Each course = short cards + a 3-Q quiz.
+--------------------------------------------------------- */
+const COURSES = [
+  {
+    id: "attention",
+    tag: "Focus",
+    title: "Why your attention keeps slipping",
+    cards: [
+      {eyebrow:"Card 1 of 7", title:"Attention is a budget, not a switch", body:"<p>Most people treat focus like a light switch: on or off. It behaves more like a bank account. Every notification, tab-switch, and half-finished thought withdraws a little. By early afternoon, many of us are running a deficit before we've done any real work.</p>"},
+      {eyebrow:"Card 2 of 7", title:"The cost of switching is invisible", body:"<p>Jumping between tasks feels efficient because each individual switch is fast. What's hidden is the re-entry cost: your brain needs a stretch of seconds to rebuild context every time it returns to a task. Do that forty times a day and the losses stack up quietly.</p>"},
+      {eyebrow:"Card 3 of 7", title:"Novelty is the real addiction", body:"<p>It isn't really the phone you crave, it's the next unknown thing. Apps are built around variable rewards: sometimes the next scroll is boring, sometimes it's great, and that unpredictability is exactly what keeps a brain checking back.</p>"},
+      {eyebrow:"Card 4 of 7", title:"Environment beats willpower", body:"<p>Trying to out-discipline a phone built by thousands of engineers is a losing bet. The more reliable fix is structural: put friction between you and the distraction rather than relying on willpower in the moment it matters least.</p>"},
+      {eyebrow:"Card 5 of 7", title:"A simple friction test", body:"<p>Ask of any habit: how many taps does it take to start, and how many to stop? Shrink the taps for things you want to do more of. Add taps to things you want to do less of. Small friction changes produce outsized behavior changes.</p>"},
+      {eyebrow:"Card 6 of 7", title:"Protect the first hour", body:"<p>Whatever gets your attention first tends to set the tone for the day. Opening with reactive tasks, like email or feeds, trains your brain to start every day in reactive mode. Starting with one chosen task trains the opposite habit.</p>"},
+      {eyebrow:"Card 7 of 7", title:"The takeaway", body:"<p>Focus isn't a personality trait, it's a designed outcome. Change what's easy to reach, protect the start of your day, and treat attention like the limited resource it actually is.</p>"}
+    ],
+    quiz: [
+      {q:"According to this lesson, what makes switching tasks costly?", opts:["The switch itself takes a long time","Re-entering context after a switch takes hidden time","Multitasking uses more electricity","Switching always lowers IQ"], correct:1, explain:"The switch is fast, but rebuilding context on return is what quietly drains time and focus."},
+      {q:"What keeps people checking apps compulsively, per the lesson?", opts:["Bright colors alone","Unpredictable, variable rewards","Long loading times","Too much text on screen"], correct:1, explain:"Variable rewards, sometimes boring, sometimes great, are what keep the checking habit alive."},
+      {q:"What's the recommended fix instead of relying on willpower?", opts:["Delete all apps permanently","Add or remove friction in your environment","Set louder reminders","Multitask more efficiently"], correct:1, explain:"Structural friction changes are more reliable than trying to out-willpower a habit in the moment."}
+    ]
+  },
+  {
+    id: "decisions",
+    tag: "Thinking",
+    title: "Making decisions you won't regret",
+    cards: [
+      {eyebrow:"Card 1 of 6", title:"Judge the process, not just the outcome", body:"<p>A good decision can still lead to a bad result, and a bad decision can get lucky. If you only grade choices by how they turned out, you'll quietly learn the wrong lessons from both wins and losses.</p>"},
+      {eyebrow:"Card 2 of 6", title:"Reversible vs. irreversible", body:"<p>Not all decisions deserve the same amount of deliberation. A choice you can easily undo, like trying a new tool for a week, is worth deciding quickly. A choice that's hard to reverse, like a major financial commitment, deserves more time and more input.</p>"},
+      {eyebrow:"Card 3 of 6", title:"The one-way door test", body:"<p>Before a big call, ask: if this goes wrong, can I walk it back? If yes, move faster than feels comfortable. If no, slow down deliberately and get more perspectives before you commit.</p>"},
+      {eyebrow:"Card 4 of 6", title:"Pre-decide your regret", body:"<p>Imagine it's a year later and the decision failed. What's the most likely reason? Naming that failure mode in advance often reveals a risk you were quietly ignoring.</p>"},
+      {eyebrow:"Card 5 of 6", title:"Seek disconfirming opinions", body:"<p>It's easy to ask people who already agree with you. The more useful move is finding one person likely to disagree, and actually listening to why.</p>"},
+      {eyebrow:"Card 6 of 6", title:"The takeaway", body:"<p>Good decision-making isn't about being right every time. It's about matching your speed and caution to the stakes, and being honest about how a choice could fail before you make it.</p>"}
+    ],
+    quiz: [
+      {q:"Why is judging decisions only by outcome a problem?", opts:["Outcomes never matter","Good decisions can still turn out badly by chance","It takes too long","It's illegal in business"], correct:1, explain:"Luck plays a role in outcomes, so outcome-only grading can teach you the wrong lesson."},
+      {q:"What should decide how much time you spend deciding?", opts:["How famous the decision is","Whether the decision is easily reversible","How you feel that morning","The size of the number involved, always"], correct:1, explain:"Reversible decisions deserve speed; irreversible ones deserve more deliberation."},
+      {q:"What is the 'pre-decide your regret' technique?", opts:["Deciding not to regret anything","Imagining the decision failed and asking why, in advance","Avoiding all risky decisions","Asking a fortune teller"], correct:1, explain:"Imagining the likely failure mode ahead of time can surface risks you're ignoring."}
+    ]
+  },
+  {
+    id: "money",
+    tag: "Money",
+    title: "The quiet habits behind financial calm",
+    cards: [
+      {eyebrow:"Card 1 of 6", title:"Save the gap, not a number", body:"<p>Instead of fixating on a savings target, focus on the gap between what you earn and what you spend. Widen that gap slightly, consistently, and the number takes care of itself over time.</p>"},
+      {eyebrow:"Card 2 of 6", title:"Automate the boring decisions", body:"<p>Willpower is a poor long-term strategy for recurring choices. Automatic transfers on payday remove the decision entirely, so saving happens before you have the chance to talk yourself out of it.</p>"},
+      {eyebrow:"Card 3 of 6", title:"Lifestyle creep is invisible by design", body:"<p>Spending tends to rise quietly alongside income, one small upgrade at a time. None of it feels like a big decision in the moment, which is exactly why it's worth checking every few months instead of only after it's already happened.</p>"},
+      {eyebrow:"Card 4 of 6", title:"Debt has a psychological cost too", body:"<p>Beyond the interest rate, carrying debt occupies mental space. Some people rationally choose to pay off a smaller, more visible debt first, purely for the relief of one less thing to track, even if it isn't mathematically optimal.</p>"},
+      {eyebrow:"Card 5 of 6", title:"Net worth over paycheck", body:"<p>A paycheck measures income; net worth measures whether you're actually getting ahead. Tracking it, even loosely, once a quarter reframes decisions around building something rather than just covering the month.</p>"},
+      {eyebrow:"Card 6 of 6", title:"The takeaway", body:"<p>Financial calm rarely comes from a clever trick. It comes from a handful of boring habits, automated so they don't depend on daily discipline.</p>"}
+    ],
+    quiz: [
+      {q:"What should you focus on saving, per this lesson?", opts:["A specific dollar target only","The gap between earning and spending","Your neighbor's savings rate","Nothing until debt is zero"], correct:1, explain:"Widening the gap between income and spending is the lever that matters most over time."},
+      {q:"Why automate savings transfers?", opts:["It's required by banks","It removes reliance on willpower for a recurring decision","It earns extra interest automatically","It's only useful for large incomes"], correct:1, explain:"Automatic transfers take the decision out of your hands before you can talk yourself out of it."},
+      {q:"What is 'lifestyle creep'?", opts:["A sudden financial emergency","Spending that rises quietly alongside income","A type of investment fraud","A tax filing status"], correct:1, explain:"It's the slow, mostly unnoticed rise in spending as income grows, worth checking periodically."}
+    ]
+  },
+  {
+    id: "sleep",
+    tag: "Health",
+    title: "The science of actually resting",
+    cards: [
+      {eyebrow:"Card 1 of 6", title:"Consistency beats duration", body:"<p>A wildly different sleep and wake time each day confuses your internal clock more than a slightly shorter, consistent schedule does. Regularity is often underrated compared to chasing an exact number of hours.</p>"},
+      {eyebrow:"Card 2 of 6", title:"Light is the master signal", body:"<p>Your body's clock takes most of its cues from light exposure. Bright light soon after waking helps set an alert daytime rhythm; dim light in the evening helps that rhythm wind down on schedule.</p>"},
+      {eyebrow:"Card 3 of 6", title:"Caffeine lingers longer than it feels", body:"<p>Caffeine has a half-life of several hours, meaning a good chunk of an afternoon cup is still active in your system at bedtime, even if you don't consciously feel wired.</p>"},
+      {eyebrow:"Card 4 of 6", title:"The wind-down matters more than the mattress", body:"<p>A consistent pre-sleep routine, however simple, signals to your body that sleep is coming. This cue is often more useful than any specific product marketed as a sleep aid.</p>"},
+      {eyebrow:"Card 5 of 6", title:"One bad night isn't a crisis", body:"<p>Sleep debt is real, but anxiety about a single rough night often does more damage than the missed sleep itself, by making the next night harder to fall into.</p>"},
+      {eyebrow:"Card 6 of 6", title:"The takeaway", body:"<p>Good sleep is less about a perfect number and more about a stable rhythm: consistent timing, smart light exposure, and not catastrophizing the occasional bad night.</p>"}
+    ],
+    quiz: [
+      {q:"What does this lesson say matters more than exact hours slept?", opts:["Room temperature only","Consistency of sleep and wake times","The brand of mattress","How many dreams you remember"], correct:1, explain:"A regular schedule helps your internal clock more than chasing a precise hour count."},
+      {q:"What is described as the 'master signal' for your body clock?", opts:["Sound","Light exposure","Temperature","Hunger"], correct:1, explain:"Light exposure, especially in the morning and evening, is the primary cue your internal clock follows."},
+      {q:"What's the advice about a single bad night of sleep?", opts:["It ruins the whole week","Anxiety about it often causes more harm than the lost sleep itself","You should nap for 6 hours the next day","It means you need a new mattress"], correct:1, explain:"Worrying about one rough night tends to make the next night harder, compounding the problem."}
+    ]
+  },
+  {
+    id: "communication",
+    tag: "People",
+    title: "Saying things so they actually land",
+    cards: [
+      {eyebrow:"Card 1 of 6", title:"People remember how, not just what", body:"<p>The literal content of a message often fades faster than the feeling it left behind. A technically correct point delivered harshly is frequently remembered as an attack, regardless of how right it was.</p>"},
+      {eyebrow:"Card 2 of 6", title:"Lead with the headline", body:"<p>Burying the main point under context and backstory forces the listener to guess where you're going. Stating the conclusion first, then explaining, respects their attention and reduces misunderstanding.</p>"},
+      {eyebrow:"Card 3 of 6", title:"Ask before you assume", body:"<p>Most conflict isn't caused by disagreement, it's caused by two people responding to two different, unstated assumptions about what happened. A single clarifying question often dissolves a fight before it starts.</p>"},
+      {eyebrow:"Card 4 of 6", title:"Feedback needs a specific target", body:"<p>Vague feedback like 'be more proactive' gives someone nothing to act on. Naming a specific moment and a specific alternative gives them something they can actually change next time.</p>"},
+      {eyebrow:"Card 5 of 6", title:"Silence is a tool, not a gap to fill", body:"<p>Rushing to fill every pause in a conversation often cuts off the other person's best thinking. A short, comfortable silence after a question frequently produces a better answer than an immediate follow-up.</p>"},
+      {eyebrow:"Card 6 of 6", title:"The takeaway", body:"<p>Clear communication is less about clever wording and more about structure: lead with the point, check assumptions, and leave room for the other person to think.</p>"}
+    ],
+    quiz: [
+      {q:"What does the lesson say people tend to remember most from a conversation?", opts:["The exact words used","How the exchange made them feel","The time of day it happened","Nothing at all"], correct:1, explain:"The feeling left behind often outlasts the literal content of what was said."},
+      {q:"What's the suggested fix for most everyday conflict?", opts:["Avoiding the topic forever","Asking a clarifying question about assumptions","Speaking louder","Waiting a week before responding"], correct:1, explain:"A lot of conflict comes from unstated, differing assumptions, which a clarifying question can surface."},
+      {q:"Why does the lesson recommend leaving silence after a question?", opts:["It's considered polite in all cultures","It gives the other person room to produce a better answer","It saves time overall","Silence has no real effect"], correct:1, explain:"Rushing to fill pauses often cuts off someone's best thinking before it fully forms."}
+    ]
+  },
+  {
+    id: "learning",
+    tag: "Learning",
+    title: "How to actually remember what you study",
+    cards: [
+      {eyebrow:"Card 1 of 6", title:"Re-reading feels productive but isn't", body:"<p>Reading the same material twice creates a false sense of fluency: it feels familiar, so it feels learned. That familiarity rarely translates into being able to recall or use the information later.</p>"},
+      {eyebrow:"Card 2 of 6", title:"Testing yourself beats reviewing notes", body:"<p>Closing the book and trying to recall the idea from memory, even imperfectly, strengthens the memory far more than passively looking at it again. The struggle to recall is doing the useful work.</p>"},
+      {eyebrow:"Card 3 of 6", title:"Spacing beats cramming", body:"<p>Spreading study sessions out over days, with gaps in between, produces longer-lasting memory than the same total hours crammed into one sitting. The forgetting in between the sessions is actually part of what makes the next session effective.</p>"},
+      {eyebrow:"Card 4 of 6", title:"Explain it like you're teaching someone", body:"<p>Trying to explain an idea in plain language, out loud or in writing, exposes gaps a silent read-through never will. If you can't explain a step simply, that's exactly the part you don't understand yet.</p>"},
+      {eyebrow:"Card 5 of 6", title:"Mix up related topics", body:"<p>Practicing several related but distinct problems in a mixed order, rather than one type at a time, forces your brain to identify which method applies. That extra step of identification is where real understanding is built.</p>"},
+      {eyebrow:"Card 6 of 6", title:"The takeaway", body:"<p>Effective studying often feels harder in the moment: testing yourself, spacing sessions out, and mixing topics all create useful friction that passive re-reading conveniently avoids.</p>"}
+    ],
+    quiz: [
+      {q:"Why is re-reading notes a weak study strategy, per the lesson?", opts:["It takes too much paper","It creates false familiarity without real recall","It's against most school rules","It only works for math"], correct:1, explain:"Re-reading feels familiar, which is easily mistaken for having actually learned the material."},
+      {q:"What does spacing out study sessions do?", opts:["Wastes time compared to cramming","Produces longer-lasting memory than cramming the same hours","Has no measurable effect","Only works for children"], correct:1, explain:"Gaps between sessions, and the mild forgetting that happens in them, strengthen long-term memory."},
+      {q:"Why does explaining a concept out loud help?", opts:["It fills time in a study session","It exposes gaps in understanding that silent reading hides","It's required for exams","It replaces the need to practice"], correct:1, explain:"Struggling to explain something simply reveals exactly which part isn't fully understood yet."}
+    ]
+  }
+];
+
+/* ---------------------------------------------------------
+   STATE + STORAGE
+--------------------------------------------------------- */
+let state = { progress:{}, streak:0, lastDay:null };
+let session = { courseId:null, cardIdx:0, quizIdx:0, quizScore:0 };
+
+async function loadState(){
+  try{
+    const r = await window.storage.get('dockside-state', false);
+    if(r && r.value){ state = JSON.parse(r.value); }
+  }catch(e){ /* no state yet */ }
+  checkStreak();
+  render();
+}
+async function saveState(){
+  try{ await window.storage.set('dockside-state', JSON.stringify(state), false); }
+  catch(e){ console.error('save failed', e); }
+}
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function checkStreak(){
+  const today = todayStr();
+  if(state.lastDay === today) return; // already counted today
+  if(state.lastDay){
+    const diff = (new Date(today) - new Date(state.lastDay)) / 86400000;
+    if(diff === 1){ state.streak += 1; }
+    else if(diff > 1){ state.streak = 0; }
+  }
+}
+function markTodayActive(){
+  const today = todayStr();
+  if(state.lastDay !== today){
+    if(state.lastDay){
+      const diff = (new Date(today) - new Date(state.lastDay)) / 86400000;
+      state.streak = (diff === 1) ? state.streak + 1 : 1;
+    } else {
+      state.streak = 1;
+    }
+    state.lastDay = today;
+    saveState();
+  }
+}
+
+function getProgress(id){
+  return state.progress[id] || { cardsSeen:0, completed:false, bestScore:null };
+}
+
+/* ---------------------------------------------------------
+   RENDER: HOME
+--------------------------------------------------------- */
+function render(){
+  document.getElementById('streakCount').textContent = state.streak || 0;
+
+  const inProgress = COURSES.filter(c=>{
+    const p = getProgress(c.id);
+    return p.cardsSeen > 0 && !p.completed;
+  });
+  const track = document.getElementById('continueTrack');
+  if(inProgress.length === 0){
+    track.innerHTML = `<div style="color:#8b96b3; font-size:13.5px; padding:6px 4px;">Nothing in progress — pick a line below to start.</div>`;
+  } else {
+    track.innerHTML = inProgress.map(c=>{
+      const p = getProgress(c.id);
+      const pct = Math.round((p.cardsSeen / c.cards.length) * 100);
+      return `<div class="course-card" onclick="openCourse('${c.id}')">
+        <div class="course-tag">${c.tag}</div>
+        <div class="course-title">${c.title}</div>
+        <div class="course-meta">
+          <span>${p.cardsSeen}/${c.cards.length} cards</span>
+        </div>
+        <div class="mini-progress"><div class="mini-progress-fill" style="width:${pct}%"></div></div>
+      </div>`;
+    }).join('');
+  }
+
+  const list = document.getElementById('allList');
+  list.innerHTML = COURSES.map((c,i)=>{
+    const p = getProgress(c.id);
+    const status = p.completed ? `Completed · scored ${p.bestScore}/3` : `${c.cards.length} cards · ~${Math.ceil(c.cards.length*1.5)} min`;
+    return `<div class="list-row" onclick="openCourse('${c.id}')">
+      <div class="num">${String(i+1).padStart(2,'0')}</div>
+      <div class="info">
+        <div class="t">${c.title}</div>
+        <div class="s">${status}</div>
+      </div>
+      <div class="check ${p.completed ? 'done':''}">${p.completed ? '✓' : ''}</div>
+    </div>`;
+  }).join('');
+}
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function goHome(){ render(); showScreen('home'); }
+
+/* ---------------------------------------------------------
+   READER
+--------------------------------------------------------- */
+function openCourse(id){
+  session.courseId = id;
+  const p = getProgress(id);
+  session.cardIdx = (p.completed || p.cardsSeen === 0) ? 0 : Math.min(p.cardsSeen, courseById(id).cards.length - 1);
+  renderReader();
+  showScreen('reader');
+}
+function courseById(id){ return COURSES.find(c=>c.id===id); }
+
+function renderReader(){
+  const course = courseById(session.courseId);
+  const card = course.cards[session.cardIdx];
+  document.getElementById('cardEyebrow').textContent = card.eyebrow;
+  document.getElementById('cardTitle').textContent = card.title;
+  document.getElementById('cardBody').innerHTML = card.body;
+  document.getElementById('readerCount').textContent = `${session.cardIdx+1}/${course.cards.length}`;
+
+  const rail = document.getElementById('readerRail');
+  rail.innerHTML = course.cards.map((_,i)=>`<div class="rail-seg ${i<=session.cardIdx?'filled':''}"></div>`).join('');
+
+  document.getElementById('prevBtn').style.visibility = session.cardIdx===0 ? 'hidden':'visible';
+  document.getElementById('nextBtn').textContent = (session.cardIdx === course.cards.length-1) ? 'Start quiz' : 'Continue';
+
+  const p = getProgress(course.id);
+  p.cardsSeen = Math.max(p.cardsSeen, session.cardIdx+1);
+  state.progress[course.id] = p;
+  saveState();
+}
+function nextCard(){
+  const course = courseById(session.courseId);
+  if(session.cardIdx < course.cards.length-1){
+    session.cardIdx++;
+    renderReader();
+  } else {
+    startQuiz();
+  }
+}
+function prevCard(){
+  if(session.cardIdx>0){ session.cardIdx--; renderReader(); }
+}
+
+/* ---------------------------------------------------------
+   QUIZ
+--------------------------------------------------------- */
+function startQuiz(){
+  session.quizIdx = 0;
+  session.quizScore = 0;
+  renderQuiz();
+  showScreen('quiz');
+}
+function shuffledOptions(q){
+  // Build [text, isCorrect] pairs, shuffle them, and return the new order
+  // plus the new index of the correct answer.
+  const pairs = q.opts.map((text,i)=>({text, isCorrect: i===q.correct}));
+  for(let i=pairs.length-1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [pairs[i],pairs[j]] = [pairs[j],pairs[i]];
+  }
+  return {
+    opts: pairs.map(p=>p.text),
+    correct: pairs.findIndex(p=>p.isCorrect)
+  };
+}
+function renderQuiz(){
+  const course = courseById(session.courseId);
+  const q = course.quiz[session.quizIdx];
+  session.currentShuffled = shuffledOptions(q); // fresh shuffle each time this question is shown
+  document.getElementById('quizProgress').textContent = `Question ${session.quizIdx+1} of ${course.quiz.length}`;
+  document.getElementById('quizQ').textContent = q.q;
+  document.getElementById('quizExplain').style.display = 'none';
+  document.getElementById('quizCtaWrap').style.display = 'none';
+  document.getElementById('quizOpts').innerHTML = session.currentShuffled.opts.map((o,i)=>
+    `<button class="opt" onclick="answerQuiz(${i})">${o}</button>`
+  ).join('');
+}
+function answerQuiz(i){
+  const q = courseById(session.courseId).quiz[session.quizIdx];
+  const correctIdx = session.currentShuffled.correct;
+  const opts = document.querySelectorAll('.opt');
+  opts.forEach((b,idx)=>{
+    b.setAttribute('disabled','true');
+    if(idx===correctIdx) b.classList.add('correct');
+    else if(idx===i) b.classList.add('wrong');
+  });
+  if(i===correctIdx) session.quizScore++;
+  document.getElementById('quizExplain').textContent = q.explain;
+  document.getElementById('quizExplain').style.display = 'block';
+  document.getElementById('quizCtaWrap').style.display = 'block';
+}
+function nextQuizQ(){
+  const course = courseById(session.courseId);
+  if(session.quizIdx < course.quiz.length-1){
+    session.quizIdx++;
+    renderQuiz();
+  } else {
+    finishCourse();
+  }
+}
+function finishCourse(){
+  const course = courseById(session.courseId);
+  const p = getProgress(course.id);
+  p.completed = true;
+  p.cardsSeen = course.cards.length;
+  p.bestScore = (p.bestScore===null) ? session.quizScore : Math.max(p.bestScore, session.quizScore);
+  state.progress[course.id] = p;
+  markTodayActive();
+  saveState();
+
+  document.getElementById('completeTitle').textContent = `${course.title.split(' ').slice(0,3).join(' ')}… done`;
+  document.getElementById('statScore').textContent = `${session.quizScore}/${course.quiz.length}`;
+  document.getElementById('statStreak').textContent = state.streak;
+  showScreen('complete');
+}
+function restartCourse(){ openCourse(session.courseId); }
+
+loadState();
+</script>
+</body>
+</html>
